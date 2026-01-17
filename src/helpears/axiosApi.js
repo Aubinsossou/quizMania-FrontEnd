@@ -11,7 +11,7 @@ export const apiGet = async (url) => {
   try {
     const response = await axios.get(url, {
       headers: {
-        Authorization: `Bearer ${VOTRE_TOKEN}`,
+       Accept: 'application/json',
       },
     })
     //console.log(' Réponse API :', response.data)
