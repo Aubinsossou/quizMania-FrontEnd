@@ -37,14 +37,14 @@ const email = ref()
 const datas = ref()
 
 const login = async () => {
-  const response = await apiPost('http://localhost:8050/api/login', {
+  const response = await apiPost('https://quizmania.free.nf/api/login', {
     email: email.value,
     password: password.value,
   })
   datas.value = response
   localStorage.setItem('user', JSON.stringify(datas.value.data.data))
   localStorage.setItem('token', datas.value.data.access_token)
-  
+
   router.push('/admin/dashboard')
   console.log('datas.value: ', datas.value.data)
 }

@@ -12,7 +12,7 @@ const datas = ref()
 
 
 const login = async () => {
-  const response = await apiPost('http://localhost:8050/api/login', {
+  const response = await apiPost('https://quizmania.free.nf/api/login', {
     email: email.value,
     password: password.value,
   })
