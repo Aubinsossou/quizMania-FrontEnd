@@ -24,7 +24,7 @@ const questionFunction = () => {
 
 /*Api pour les themes et question assossie*/
 const apiGetThemeQuestion = async () => {
-  const response = await apiGet('https://quizmania.free.nf/api/v1/admin/theme/index')
+  const response = await apiGet('https://quizmania.com/api/v1/admin/theme/index')
   themeQuestion.value = response.data
   console.log(' themeQuestion.value: ', themeQuestion.value)
 }
@@ -32,7 +32,7 @@ const apiGetThemeQuestion = async () => {
 /* Api ajouter theme */
 
 const apiAjoutTheme = async () => {
-  const response = await apiPost('https://quizmania.free.nf/api/v1/admin/theme/store', {
+  const response = await apiPost('https://quizmania.com/api/v1/admin/theme/store', {
     name: nameTheme.value,
   })
   themeAdd.value = response
@@ -41,7 +41,7 @@ const apiAjoutTheme = async () => {
 /* Api recuperer theme a edit */
 const ApiEditTheme = async (theme) => {
   displayBtnEdit.value = true
-  const response = await apiGet('https://quizmania.free.nf/api/v1/admin/theme/edit/' + theme.id)
+  const response = await apiGet('https://quizmania.com/api/v1/admin/theme/edit/' + theme.id)
   nameTheme.value = theme.name
   router.push(`/admin/dashboard?id=${theme.id}`)
   console.log('nameTheme.value: ', nameTheme.value)
@@ -53,7 +53,7 @@ const ApiEditTheme = async (theme) => {
 
 const ApiModifyTheme = async () => {
   displayBtnEdit.value = true
-  const response = await apiPost('https://quizmania.free.nf/api/v1/admin/theme/update/' + id, {
+  const response = await apiPost('https://quizmania.com/api/v1/admin/theme/update/' + id, {
     name: nameTheme.value,
   })
   ThemeEdit.value = response.data
@@ -63,7 +63,7 @@ const ApiModifyTheme = async () => {
 }
 
 const logout = async () => {
-  const response = await apiDelete("https://quizmania.free.nf/api/logout")
+  const response = await apiDelete("https://quizmania.com/api/logout")
   deconnect.value = response
 
 localStorage.removeItem('token')

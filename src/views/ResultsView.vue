@@ -17,7 +17,7 @@ const refresh = ref()
 
  const getThemeIdApi = async () => {
     loading.value = true
-    const response = await apiGet('https://quizmania.free.nf/api/v1/admin/theme/indexThemeId/' + themeId.value)
+    const response = await apiGet('https://quizmania.com/api/v1/admin/theme/indexThemeId/' + themeId.value)
     themeQuestion.value = response.data
     console.log(' themeQuestion.value: ',  themeQuestion.value);
     longQuestion.value = await  themeQuestion.value.questions.length
