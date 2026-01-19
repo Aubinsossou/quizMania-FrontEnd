@@ -14,6 +14,7 @@ export default defineConfig({
             rewrite: (path) => path.replace(/^\/api/, ''), // Removes /api from the request path before forwarding
           },
       },
+    },
   plugins: [
     vue(),
     vueDevTools(),
