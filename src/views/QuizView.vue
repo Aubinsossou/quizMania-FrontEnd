@@ -54,7 +54,7 @@ const stopTimer = () => {
 }
 
 const getThemeIdApi = async (id) => {
-  const response = await apiGet('https://quizmania.com/api/v1/admin/theme/indexThemeId/' + themeId)
+  const response = await apiGet('https://quizmania.projet.sbs/public/v1/admin/theme/indexThemeId/' + themeId)
   themeQuestion.value = response
   longQuestion.value = themeQuestion.value.data.questions.length
   return longQuestion.value
@@ -68,7 +68,7 @@ const nextQuestion = async () => {
   currentQuestionIndex.value++
 
   console.log('currentQuestionIndex: ', currentQuestionIndex.value)
-  
+
 
   if (longQuestion.value <= currentQuestionIndex.value) {
     /*  console.log('longQuestion.value: ', longQuestion.value);

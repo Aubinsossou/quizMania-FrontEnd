@@ -12,7 +12,7 @@ const datas = ref()
 
 
 const login = async () => {
-  const response = await apiPost('https://quizmania.com/api/login', {
+  const response = await apiPost('https://quizmania.free.nf/api/login', {
     email: email.value,
     password: password.value,
   })
@@ -25,12 +25,12 @@ const login = async () => {
 
 
 onMounted(() => {
- 
+
 })
 </script>
 <template>
   <div class="admin-wrapper">
-   
+
     <div v-if="!isAuthenticated" class="login-container">
       <div class="login-box">
         <h2 class="login-title"> Espace Administration</h2>

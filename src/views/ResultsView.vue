@@ -17,7 +17,7 @@ const refresh = ref()
 
  const getThemeIdApi = async () => {
     loading.value = true
-    const response = await apiGet('https://quizmania.com/api/v1/admin/theme/indexThemeId/' + themeId.value)
+    const response = await apiGet('https://quizmania.projet.sbs/public/v1/admin/theme/indexThemeId/' + themeId.value)
     themeQuestion.value = response.data
     console.log(' themeQuestion.value: ',  themeQuestion.value);
     longQuestion.value = await  themeQuestion.value.questions.length
@@ -26,7 +26,7 @@ const refresh = ref()
 
   }
 
-  watchEffect(()=>{    
+  watchEffect(()=>{
     getThemeIdApi()
   })
 
@@ -48,12 +48,12 @@ const resultEmoji = computed(() => {
 
 const retourTheme = () => {
   router.push('/')
-} 
+}
 
 onMounted( async()=>{
  //loading.value = true
  //await getThemeIdApi()
-  
+
 })
 
 /* watchEffect(()=>{
@@ -76,7 +76,7 @@ onMounted( async()=>{
      <p class="results-percentage">{{ quizScore.score }} / {{ longQuestion }}</p>
     <button class="btn btn-primary" @click.prevent="retourTheme">
        Retour aux thèmes
-    </button> 
+    </button>
     <button class="btn btn-secondary" @click.prevent="restart">
        Recommencer
     </button>

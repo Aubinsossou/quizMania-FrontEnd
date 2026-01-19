@@ -9,7 +9,7 @@ const themesId = ref(null)
 const loading = ref()
 
 const getThemeApi = async () => {
-  const response = await apiGet("https://quizmania.com/api/v1/admin/theme/index")
+  const response = await apiGet("https://quizmania.projet.sbs/public/v1/admin/theme/index")
   themes.value = response
 }
 
