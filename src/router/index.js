@@ -18,7 +18,7 @@ const routes = [
     path: '/exo',
     name: 'exo',
     component: Exo,
-    meta: { title: 'Quiz Mania - Accueil' }
+    meta: { title: 'Quiz Mania - Exo' }
   },
   {
     path: '/quiz/:themeId',
