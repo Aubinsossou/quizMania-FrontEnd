@@ -28,6 +28,7 @@ onMounted(async () => {
 
 </script>
 <template>
+h1>Choisissez un thème pour commencer le quiz !</h1>
   <div>
     <div v-if="loading" class="loading">
       <div class="spinner"></div>
