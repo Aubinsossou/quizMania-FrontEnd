@@ -9,9 +9,9 @@ export default defineConfig({
   server: {
         proxy: {
           '/api': { // Any request starting with /api will be proxied
-            target: 'https://quizmania.free.nf', // Replace with your backend server's address
+            target: 'https://quizmania.projet.sbs', // Replace with your backend server's address
             changeOrigin: true, // Rewrites the origin header to match the target
-            rewrite: (path) => path.replace(/^\/api/, ''), // Removes /api from the request path before forwarding
+            rewrite: (path) => path.replace(/^\/api/, '/public'), // Changes /api to /public in the request path
           },
       },
     },
