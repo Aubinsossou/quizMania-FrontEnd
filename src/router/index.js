@@ -34,7 +34,7 @@ const routes = [
     meta: { title: 'Résultats' }
   },
   {
-    path: '/admin',
+    path: '/admin1',
     name: 'admin',
     component: AdminView,
     meta: { title: 'Administration' }
