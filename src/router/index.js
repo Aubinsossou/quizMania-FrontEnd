@@ -34,7 +34,7 @@ const routes = [
     meta: { title: 'Résultats' }
   },
   {
-    path: '/admin1',
+    path: '/admin',
     name: 'admin',
     component: AdminView,
     meta: { title: 'Administration' }
@@ -74,4 +74,4 @@ export const router = createRouter({
     next()
   }
 })
- 
+
