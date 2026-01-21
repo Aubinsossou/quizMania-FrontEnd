@@ -54,7 +54,7 @@ const stopTimer = () => {
 }
 
 const getThemeIdApi = async (id) => {
-  const response = await apiGet('https://quizmania.projet.sbs/public/v1/admin/theme/indexThemeId/' + themeId)
+  const response = await apiGet('https://quizmania.projet.sbs/public/api/v1/admin/theme/indexThemeId/' + themeId)
   themeQuestion.value = response
   longQuestion.value = themeQuestion.value.data.questions.length
   return longQuestion.value

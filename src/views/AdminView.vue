@@ -12,7 +12,7 @@ const datas = ref()
 
 
 const login = async () => {
-  const response = await apiPost('https://quizmania.projet.sbs/public/login', {
+  const response = await apiPost('https://quizmania.projet.sbs/public/api/login', {
     email: email.value,
     password: password.value,
   })
