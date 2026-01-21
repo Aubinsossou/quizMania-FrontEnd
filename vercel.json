@@ -3,6 +3,10 @@
     {
       "source": "/api/:path*",
       "destination": "https://quizmania.projet.sbs/public/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
