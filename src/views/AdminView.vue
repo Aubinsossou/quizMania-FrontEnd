@@ -12,7 +12,7 @@ const datas = ref()
 
 
 const login = async () => {
-  const response = await apiPost('https://quizmania.projet.aerogiino.com/api/login', {
+  const response = await apiPost('https://quizmania.aerogiino.com/api/login', {
     email: email.value,
     password: password.value,
   })
