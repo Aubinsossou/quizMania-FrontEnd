@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted, ref } from 'vue'
-import { apiGet, apiPost, apiPut, apiDelete } from '@/helpears/axiosApi'
+import { apiGet, apiPost, apiPut, apiDelete, apiUrl } from '@/helpears/axiosApi'
 import { useRouter, useRoute } from 'vue-router'
 
 const router = useRouter()
@@ -25,7 +25,7 @@ const status4 = ref('faux')
 const input4 = ref('')
 
 const apiGetThemeQuestion = async () => {
-  const response = await apiGet('https://quizmania.aerogiino.com/api/v1/admin/theme/index')
+  const response = await apiGet(apiUrl('api/v1/admin/theme/index'))
   themeQuestions.value = response
   console.log('themeQuestions.value: ', themeQuestions.value.themeQuestionReponse)
 }
@@ -80,13 +80,13 @@ const apiPostQuestionReponse = async () => {
     { name: input4.value, status: status4.value },
   )
 
-  const responses = await apiPost('https://quizmania.aerogiino.com/api/v1/admin/question/store', {
+  const responses = await apiPost(apiUrl('api/v1/admin/question/store'), {
     theme_id: theme_id.value,
     question: question.value,
   })
   questionAdd.value = responses.data
 
-  const response = await apiPost('https://quizmania.aerogiino.com/api/v1/admin/reponse/store', {
+  const response = await apiPost(apiUrl('api/v1/admin/reponse/store'), {
     listReponse: listReponse.value,
   })
   ReponseAdd.value = response.data
@@ -103,13 +103,13 @@ const apiPostQuestionReponse = async () => {
 }
 
 const apiModifyQuestionReponse = async (question) => {
-  const response = await apiGet('https://quizmania.aerogiino.com/api/v1/admin/question/edit/' + question.id)
+  const response = await apiGet(apiUrl(`api/v1/admin/question/edit/${question.id}`))
   modifyQuestionReponse.value = response.questionReponse
   console.log('modifyQuestionReponse.value: ', modifyQuestionReponse.value)
 }
 
 const logout = async () => {
-  const response = await apiDelete("https://quizmania.aerogiino.com/api/logout")
+  const response = await apiDelete(apiUrl('api/logout'))
   deconnect.value = response
 
 localStorage.removeItem('token')

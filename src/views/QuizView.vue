@@ -1,7 +1,7 @@
 <script setup>
 import { computed, onMounted, onBeforeUnmount, ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
-import { apiGet } from '@/helpears/axiosApi'
+import { apiGet, apiUrl } from '@/helpears/axiosApi'
 import { useScoreStore } from '@/store/score.js'
 
 const quizScore = useScoreStore()
@@ -54,7 +54,7 @@ const stopTimer = () => {
 }
 
 const getThemeIdApi = async (id) => {
-  const response = await apiGet('https://quizmania.aerogiino.com/api/v1/admin/theme/indexThemeId/' + themeId)
+  const response = await apiGet(apiUrl(`api/v1/admin/theme/indexThemeId/${themeId}`))
   themeQuestion.value = response
   longQuestion.value = themeQuestion.value.data.questions.length
   return longQuestion.value

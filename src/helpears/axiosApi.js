@@ -1,8 +1,11 @@
 import axios from 'axios';
 import { ref } from 'vue'
+import { buildApiUrl } from '@/config/api'
 
 
 const VOTRE_TOKEN = localStorage.getItem('token')
+
+export const apiUrl = (path = '') => buildApiUrl(path)
 
 
 export const apiGet = async (url) => {

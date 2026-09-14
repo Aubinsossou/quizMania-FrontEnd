@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { apiGet } from '../helpears/axiosApi'
+import { apiGet, apiUrl } from '../helpears/axiosApi'
 
 const router = useRouter()
 const themes = ref(null)
@@ -9,7 +9,7 @@ const themesId = ref(null)
 const loading = ref()
 
 const getThemeApi = async () => {
-  const response = await apiGet("https://quizmania.aerogiino.com/api/v1/admin/theme/index")
+  const response = await apiGet(apiUrl('api/v1/admin/theme/index'))
   themes.value = response
 }
 

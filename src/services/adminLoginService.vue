@@ -29,7 +29,7 @@
 <script setup>
 import { ref, reactive, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import { apiPost } from '@/helpears/axiosApi'
+import { apiPost, apiUrl } from '@/helpears/axiosApi'
 
 const router = useRouter()
 const password = ref()
@@ -37,7 +37,7 @@ const email = ref()
 const datas = ref()
 
 const login = async () => {
-  const response = await apiPost('https://quizmania.aerogiino.com/api/login', {
+  const response = await apiPost(apiUrl('api/login'), {
     email: email.value,
     password: password.value,
   })

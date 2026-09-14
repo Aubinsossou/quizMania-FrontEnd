@@ -1,7 +1,7 @@
 <script setup>
 import { ref, reactive, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
-import { apiPost, apiGet, apiDelete } from '@/helpears/axiosApi'
+import { apiPost, apiGet, apiDelete, apiUrl } from '@/helpears/axiosApi'
 
 const themeQuestion = ref()
 const loading = ref()
@@ -24,7 +24,7 @@ const questionFunction = () => {
 
 /*Api pour les themes et question assossie*/
 const apiGetThemeQuestion = async () => {
-  const response = await apiGet('https://quizmania.aerogiino.com/api/v1/admin/theme/index')
+  const response = await apiGet(apiUrl('api/v1/admin/theme/index'))
   themeQuestion.value = response.data
   console.log(' themeQuestion.value: ', themeQuestion.value)
 }
@@ -32,7 +32,7 @@ const apiGetThemeQuestion = async () => {
 /* Api ajouter theme */
 
 const apiAjoutTheme = async () => {
-  const response = await apiPost('https://quizmania.aerogiino.com/api/v1/admin/theme/store', {
+  const response = await apiPost(apiUrl('api/v1/admin/theme/store'), {
     name: nameTheme.value,
   })
   themeAdd.value = response
@@ -41,7 +41,7 @@ const apiAjoutTheme = async () => {
 /* Api recuperer theme a edit */
 const ApiEditTheme = async (theme) => {
   displayBtnEdit.value = true
-  const response = await apiGet('https://quizmania.aerogiino.com/api/v1/admin/theme/edit/' + theme.id)
+  const response = await apiGet(apiUrl(`api/v1/admin/theme/edit/${theme.id}`))
   nameTheme.value = theme.name
   router.push(`/admin/dashboard?id=${theme.id}`)
   console.log('nameTheme.value: ', nameTheme.value)
@@ -53,7 +53,7 @@ const ApiEditTheme = async (theme) => {
 
 const ApiModifyTheme = async () => {
   displayBtnEdit.value = true
-  const response = await apiPost('https://quizmania.aerogiino.com/api/v1/admin/theme/update/' + id, {
+  const response = await apiPost(apiUrl(`api/v1/admin/theme/update/${id}`), {
     name: nameTheme.value,
   })
   ThemeEdit.value = response.data
@@ -63,7 +63,7 @@ const ApiModifyTheme = async () => {
 }
 
 const logout = async () => {
-  const response = await apiDelete("https://quizmania.aerogiino.com/api/logout")
+  const response = await apiDelete(apiUrl('api/logout'))
   deconnect.value = response
 
 localStorage.removeItem('token')
